@@ -25,7 +25,7 @@ export const ALIBABA_BASE_URL = "https://dashscope.aliyuncs.com/api/";
 
 export const TENCENT_BASE_URL = "https://hunyuan.tencentcloudapi.com";
 
-export const MOONSHOT_BASE_URL = "https://api.moonshot.cn";
+export const MOONSHOT_BASE_URL = "https://api.moonshot.ai";
 export const IFLYTEK_BASE_URL = "https://spark-api-open.xf-yun.com";
 
 export const DEEPSEEK_BASE_URL = "https://api.deepseek.com";
@@ -493,6 +493,7 @@ export const VISION_MODEL_REGEXES = [
   /o3/,
   /o4-mini/,
   /grok-4/i,
+  /gpt-5/
 ];
 
 export const EXCLUDE_VISION_MODEL_REGEXES = [/claude-3-5-haiku-20241022/];
@@ -517,6 +518,11 @@ const openaiModels = [
   "gpt-4.1-nano-2025-04-14",
   "gpt-4.5-preview",
   "gpt-4.5-preview-2025-02-27",
+  "gpt-5-chat",
+  "gpt-5-mini",
+  "gpt-5-nano",
+  "gpt-5",
+  "gpt-5-chat-2025-01-01-preview",
   "gpt-4o",
   "gpt-4o-2024-05-13",
   "gpt-4o-2024-08-06",
@@ -623,7 +629,18 @@ const tencentModels = [
   "hunyuan-vision",
 ];
 
-const moonshotModes = ["moonshot-v1-8k", "moonshot-v1-32k", "moonshot-v1-128k"];
+const moonshotModels = [
+  "moonshot-v1-auto",
+  "moonshot-v1-8k",
+  "moonshot-v1-32k",
+  "moonshot-v1-128k",
+  "moonshot-v1-8k-vision-preview",
+  "moonshot-v1-32k-vision-preview",
+  "moonshot-v1-128k-vision-preview",
+  "kimi-thinking-preview",
+  "kimi-k2-0711-preview",
+  "kimi-latest",
+];
 
 const iflytekModels = [
   "general",
@@ -810,7 +827,7 @@ export const DEFAULT_MODELS = [
       sorted: 8,
     },
   })),
-  ...moonshotModes.map((name) => ({
+  ...moonshotModels.map((name) => ({
     name,
     available: true,
     sorted: seq++,
